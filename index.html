@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>الخط الزمني لإنجازات الشيخ تميم بن حمد في المجال الاجتماعي</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Scheherazade+New:wght@700&family=Amiri:wght@400;700&display=swap');
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --mar:    #6b1220;
+  --mar2:   #4e0d18;
+  --mar3:   #8a1a2c;
+  --mar-lt: #f9f0f2;
+  --mar-md: #e8c4cc;
+  --gold:   #9a7428;
+  --gold2:  #b8923a;
+  --gold-lt:#fdf6e8;
+  --gold-md:#e8cc88;
+  --bg:     #f6f3ef;
+  --surface:#ffffff;
+  --surf2:  #faf8f5;
+  --bdr:    #e4ddd4;
+  --bdr2:   #d4ccc0;
+  --txt:    #1e120a;
+  --txt2:   #5a3e30;
+  --txt3:   #8a6e60;
+  --grn:    #1e6840;
+  --red:    #a01828;
+  --shadow: 0 1px 3px rgba(110,18,32,.06), 0 4px 16px rgba(110,18,32,.05);
+  --shadow2:0 2px 8px rgba(110,18,32,.10), 0 8px 28px rgba(110,18,32,.08);
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── PAGES ── */
+.page { display:none; min-height:100vh; padding:28px 16px 56px; flex-direction:column; align-items:center; }
+.page.on { display:flex; }
+
+/* ══════════════════════════════
+   WELCOME PAGE
+══════════════════════════════ */
+.w-outer {
+  max-width: 420px; width:100%;
+  margin-top: 16px;
+  display: flex; flex-direction:column; gap:16px;
+}
+
+/* flag hero */
+.w-hero {
+  background: linear-gradient(150deg, var(--mar2) 0%, var(--mar3) 55%, #a82038 100%);
+  border-radius: 20px;
+  padding: 28px 24px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.w-hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 18px,
+    rgba(255,255,255,.025) 18px,
+    rgba(255,255,255,.025) 36px
+  );
+}
+.w-flag { font-size:52px; display:block; margin-bottom:12px; position:relative; }
+.w-title {
+  font-family:'Scheherazade New',serif;
+  font-size:20px; color:#fff;
+  line-height:1.55; position:relative;
+  text-shadow: 0 1px 3px rgba(0,0,0,.25);
+}
+.w-sub {
+  font-size:11px; color:rgba(255,255,255,.55);
+  margin-top:6px; position:relative;
+  letter-spacing:.4px;
+}
+
+/* info card */
+.w-info {
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+  display: flex; gap:12px; align-items:flex-start;
+}
+.w-info-icon {
+  width:34px; height:34px; border-radius:10px;
+  background:var(--mar-lt); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:17px;
+}
+.w-info-text { font-size:13px; color:var(--txt2); line-height:1.75; }
+.w-info-text strong { color:var(--mar); font-weight:700; }
+
+/* form card */
+.w-form {
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  border-radius: 16px;
+  padding: 20px 18px;
+  box-shadow: var(--shadow);
+}
+.w-form-title { font-size:13px; color:var(--txt2); font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:7px; }
+.w-form-title::before { content:''; display:inline-block; width:3px; height:14px; background:var(--mar); border-radius:2px; }
+
+.fg { margin-bottom:13px; }
+.fg label { display:block; font-size:11.5px; color:var(--txt3); font-weight:700; margin-bottom:5px; letter-spacing:.3px; }
+.fg input {
+  width:100%; background:var(--surf2);
+  border:1.5px solid var(--bdr);
+  border-radius:10px; padding:10px 13px;
+  color:var(--txt); font-family:'Tajawal',sans-serif;
+  font-size:14px; outline:none;
+  transition:border-color .18s, box-shadow .18s;
+}
+.fg input:focus { border-color:var(--mar); box-shadow:0 0 0 3px rgba(107,18,32,.08); }
+.fg input::placeholder { color:rgba(90,62,48,.3); }
+.errtxt { color:var(--red); font-size:11px; margin-top:4px; display:none; }
+
+.btn-start {
+  display:block; width:100%; padding:13px;
+  background: linear-gradient(135deg, var(--mar3), var(--mar2));
+  border:none; border-radius:11px; color:#fff;
+  font-family:'Tajawal',sans-serif;
+  font-size:14px; font-weight:800; cursor:pointer;
+  letter-spacing:.3px;
+  box-shadow: 0 3px 12px rgba(74,13,24,.28);
+  transition:transform .12s, box-shadow .12s;
+}
+.btn-start:hover { transform:translateY(-1px); box-shadow:0 5px 18px rgba(74,13,24,.32); }
+.btn-start:active { transform:translateY(0); }
+
+/* ══════════════════════════════
+   ACTIVITY PAGE
+══════════════════════════════ */
+.act-wrap { max-width:480px; width:100%; }
+
+/* top bar */
+.topbar {
+  background: linear-gradient(135deg, var(--mar2), var(--mar3));
+  border-radius: 16px; padding:14px 18px 14px 14px;
+  margin-bottom:14px;
+  display:flex; align-items:center; gap:12px;
+  box-shadow: var(--shadow2);
+  position:relative; overflow:hidden;
+}
+.topbar::after {
+  content:'';
+  position:absolute; top:-30px; left:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background:rgba(255,255,255,.04);
+}
+.topbar-icon {
+  width:42px; height:42px; border-radius:12px;
+  background:rgba(255,255,255,.12);
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; flex-shrink:0;
+}
+.topbar-text h2 {
+  font-family:'Scheherazade New',serif;
+  font-size:16px; color:#fff; line-height:1.4;
+}
+.topbar-text p { font-size:10.5px; color:rgba(255,255,255,.55); margin-top:2px; }
+.topbar-flag { margin-right:auto; font-size:26px; opacity:.9; }
+
+/* instruction */
+.instr {
+  background:var(--gold-lt);
+  border:1px solid var(--gold-md);
+  border-radius:11px; padding:10px 14px;
+  font-size:12.5px; color:var(--txt2);
+  text-align:center; margin-bottom:14px; line-height:1.7;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.instr-dot {
+  width:7px; height:7px; border-radius:50%;
+  background:var(--gold2); flex-shrink:0;
+}
+
+/* pool box */
+.pool-box {
+  background:var(--surface);
+  border:1px solid var(--bdr);
+  border-radius:14px; padding:14px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow);
+}
+.box-label {
+  font-size:11px; color:var(--txt3); font-weight:700;
+  letter-spacing:.5px; text-align:center;
+  margin-bottom:11px;
+  display:flex; align-items:center; gap:8px; justify-content:center;
+}
+.box-label::before, .box-label::after {
+  content:''; flex:1; max-width:40px; height:1px; background:var(--bdr2);
+}
+
+.pool {
+  display:flex; flex-wrap:wrap; gap:8px;
+  justify-content:center; min-height:50px;
+  padding:10px 8px;
+  background:var(--surf2);
+  border:1.5px dashed var(--bdr2);
+  border-radius:10px;
+  transition: border-color .15s, background .15s;
+}
+.pool.drag-over { border-color:var(--gold2); background:var(--gold-lt); }
+
+/* ── DRAG CARDS ── */
+.dcard {
+  background: var(--mar);
+  border-radius:9px; padding:9px 14px;
+  font-size:12.5px; color:#fff; font-weight:700;
+  cursor:grab; touch-action:none; user-select:none;
+  text-align:center; max-width:200px; line-height:1.4;
+  box-shadow: 0 2px 6px rgba(74,13,24,.22);
+  transition:transform .13s, box-shadow .13s, opacity .13s;
+  position:relative;
+}
+.dcard::after {
+  content:'';
+  position:absolute; inset:0; border-radius:9px;
+  background:linear-gradient(180deg,rgba(255,255,255,.08) 0%,transparent 60%);
+  pointer-events:none;
+}
+.dcard:hover { transform:translateY(-2px); box-shadow:0 5px 14px rgba(74,13,24,.28); }
+.dcard.dragging { opacity:.25; }
+.dcard.placed-ok { background:var(--grn); box-shadow:0 2px 6px rgba(30,104,64,.2); }
+.dcard.placed-er { background:var(--red); }
+.dcard.in-zone { cursor:grab; box-shadow:none; transform:none; width:100%; max-width:100%; }
+.dcard.in-zone:hover { transform:translateY(-1px); box-shadow:0 3px 8px rgba(74,13,24,.18); }
+
+/* ══ VERTICAL TIMELINE ══ */
+.tl-box {
+  background:var(--surface);
+  border:1px solid var(--bdr);
+  border-radius:14px; padding:18px 14px 14px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow);
+}
+
+.tl-track { display:flex; flex-direction:column; position:relative; gap:0; }
+
+/* spine */
+.tl-track::before {
+  content:'';
+  position:absolute;
+  right:28px;
+  top:24px; bottom:24px;
+  width:2px;
+  background: linear-gradient(to bottom, transparent, var(--gold-md) 12%, var(--gold-md) 88%, transparent);
+  border-radius:2px;
+  z-index:0;
+}
+
+.tl-row {
+  display:flex; align-items:center; gap:12px;
+  padding:7px 0; position:relative; z-index:1;
+}
+
+/* year badge — circle with clear number */
+.tl-year-wrap {
+  flex-shrink:0; width:58px;
+  display:flex; flex-direction:column; align-items:center; gap:2px;
+  position:relative; z-index:2;
+}
+.tl-circle {
+  width:54px; height:54px; border-radius:50%;
+  background: linear-gradient(145deg, var(--mar3), var(--mar2));
+  border:3px solid var(--gold2);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 2px 8px rgba(74,13,24,.22), inset 0 1px 0 rgba(255,255,255,.1);
+}
+.tl-circle span {
+  font-size:13px; font-weight:800; color:#fff;
+  letter-spacing:-.3px; line-height:1;
+}
+
+/* drop zone */
+.dzone {
+  flex:1; min-height:60px;
+  border:1.5px dashed var(--bdr2);
+  border-radius:11px;
+  background:var(--surf2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:12px; color:var(--txt3);
+  padding:8px 10px; text-align:center;
+  transition:border-color .15s, background .15s, box-shadow .15s;
+  cursor:default;
+}
+.dzone.over {
+  border-color:var(--gold2); background:var(--gold-lt);
+  box-shadow:0 0 0 3px rgba(184,146,58,.12);
+  border-style:solid;
+}
+.dzone.filled { border-style:solid; border-color:var(--bdr); background:var(--surface); padding:6px; }
+.dzone.ok { border-color:rgba(30,104,64,.4); background:rgba(30,104,64,.05); }
+.dzone.er { border-color:rgba(160,24,40,.4); background:rgba(160,24,40,.05); }
+
+.zone-hint { font-size:11.5px; color:var(--txt3); pointer-events:none; }
+
+/* separator */
+.tl-sep {
+  height:1px; margin:0 0 0 70px;
+  background:linear-gradient(to left, transparent, var(--bdr) 30%, var(--bdr) 70%, transparent);
+}
+
+/* ── ACTION BUTTONS ── */
+.btn-row { display:flex; gap:8px; margin-top:14px; }
+
+.btn-check {
+  flex:1; padding:12px;
+  background:linear-gradient(135deg, var(--mar3), var(--mar2));
+  border:none; border-radius:11px; color:#fff;
+  font-family:'Tajawal',sans-serif; font-size:13.5px; font-weight:800;
+  cursor:pointer; letter-spacing:.2px;
+  box-shadow:0 3px 10px rgba(74,13,24,.22);
+  transition:transform .12s, box-shadow .12s;
+}
+.btn-check:hover { transform:translateY(-1px); box-shadow:0 5px 14px rgba(74,13,24,.26); }
+
+.btn-reset {
+  padding:12px 16px;
+  background:var(--surf2); border:1.5px solid var(--bdr2);
+  border-radius:11px; color:var(--txt2);
+  font-family:'Tajawal',sans-serif; font-size:13px; font-weight:700;
+  cursor:pointer; display:none; transition:background .15s;
+}
+.btn-reset:hover { background:var(--bg); }
+.btn-reset.show { display:block; }
+
+/* result */
+.result {
+  margin-top:11px; border-radius:10px;
+  padding:11px 16px; font-size:13.5px;
+  font-weight:700; text-align:center; display:none;
+  line-height:1.5;
+}
+.result.show { display:block; }
+.result.ok   { background:rgba(30,104,64,.07); border:1.5px solid rgba(30,104,64,.25); color:var(--grn); }
+.result.part { background:var(--gold-lt); border:1.5px solid var(--gold-md); color:var(--gold); }
+
+.btn-cert {
+  display:none; width:100%; padding:13px;
+  background:linear-gradient(135deg, var(--gold2), var(--gold));
+  border:none; border-radius:11px; color:#fff;
+  font-family:'Tajawal',sans-serif;
+  font-size:14px; font-weight:800; cursor:pointer; margin-top:10px;
+  box-shadow:0 3px 12px rgba(154,116,40,.26);
+  transition:transform .12s, box-shadow .12s;
+}
+.btn-cert:hover { transform:translateY(-1px); box-shadow:0 5px 16px rgba(154,116,40,.3); }
+.btn-cert.show { display:block; }
+
+/* ══════════════════════════════
+   CERTIFICATE PAGE
+══════════════════════════════ */
+#pg-cert { background:linear-gradient(155deg, #f8f4ee, #ede3d0); }
+.cwrap { max-width:560px; width:100%; margin:16px auto 0; }
+
+.ccard {
+  background:#fff; position:relative; overflow:hidden;
+  border-radius:6px; text-align:center;
+  box-shadow:
+    0 0 0 1px var(--gold2),
+    0 0 0 5px var(--mar2),
+    0 0 0 7px var(--gold2),
+    0 24px 48px rgba(0,0,0,.12);
+}
+.cband {
+  height:10px;
+  background:linear-gradient(90deg, var(--mar2), var(--mar3) 25%, var(--gold2) 50%, var(--mar3) 75%, var(--mar2));
+}
+.ccorn { position:absolute; font-size:20px; opacity:.09; color:var(--mar2); }
+.ccorn.tl{top:14px;right:14px;} .ccorn.tr{top:14px;left:14px;transform:rotate(90deg);}
+.ccorn.bl{bottom:14px;right:14px;transform:rotate(-90deg);} .ccorn.br{bottom:14px;left:14px;transform:rotate(180deg);}
+.cin { padding:24px 36px 28px; position:relative; }
+.cwm { position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:160px;opacity:.022;pointer-events:none; }
+.c-eyebrow { font-size:10px; color:var(--gold2); letter-spacing:12px; margin-bottom:6px; }
+.c-school { font-family:'Tajawal',sans-serif; font-size:11px; font-weight:700; color:var(--mar2); margin-bottom:4px; }
+.c-divider { width:40px; height:1px; background:linear-gradient(90deg,transparent,var(--gold2),transparent); margin:0 auto 11px; }
+.c-badge {
+  display:inline-block;
+  background:linear-gradient(135deg,var(--mar3),var(--mar2)); color:#fff;
+  font-family:'Tajawal',sans-serif; font-size:10px; font-weight:700;
+  padding:4px 16px; border-radius:999px; margin-bottom:11px;
+  border:1px solid rgba(184,146,58,.4);
+}
+.c-rule { display:flex; align-items:center; gap:8px; margin:0 auto 4px; max-width:320px; }
+.c-rule::before,.c-rule::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--gold2),transparent); }
+.c-rule span { color:var(--gold2); font-size:10px; }
+.c-title { font-family:'Amiri',serif; font-size:22px; font-weight:700; color:var(--mar2); margin:0 0 3px; }
+.c-body { font-family:'Amiri',serif; font-size:15px; line-height:2.1; color:#1a0808; max-width:400px; margin:12px auto 9px; }
+.c-name { color:var(--mar2); font-weight:700; font-size:16px; border-bottom:1.5px solid var(--gold2); padding-bottom:1px; }
+.c-act { font-family:'Amiri',serif; font-size:12px; background:linear-gradient(135deg,#fdfaf4,#f7f0e2); border:1px solid var(--gold2); border-radius:5px; padding:5px 16px; display:inline-block; margin-bottom:9px; color:var(--mar2); font-weight:700; }
+.c-stars { font-size:15px; margin:4px 0 10px; letter-spacing:5px; }
+.c-date { font-family:'Tajawal',sans-serif; font-size:10px; color:#a09080; margin-bottom:13px; }
+.c-rule2 { border:none; height:1px; background:linear-gradient(90deg,transparent,var(--gold2) 30%,var(--mar2) 50%,var(--gold2) 70%,transparent); margin:0 auto 12px; width:46%; }
+.c-sig-line { width:120px; height:1px; background:linear-gradient(90deg,transparent,var(--mar2),transparent); margin:0 auto 4px; }
+.c-sig-name { font-family:'Scheherazade New',serif; font-size:14px; color:var(--mar2); font-weight:700; }
+.c-sig-role { font-family:'Tajawal',sans-serif; font-size:10px; color:#bbb; margin-top:1px; }
+
+.cacts { display:flex; gap:10px; justify-content:center; margin-top:16px; flex-wrap:wrap; padding-bottom:12px; }
+.btn-print { padding:11px 24px; background:linear-gradient(135deg,var(--mar3),var(--mar2)); border:1px solid rgba(184,146,58,.3); border-radius:10px; color:#fff; font-family:'Tajawal',sans-serif; font-size:13px; font-weight:700; cursor:pointer; }
+.btn-back-cert { padding:11px 24px; background:#fff; border:1.5px solid var(--mar2); border-radius:10px; color:var(--mar2); font-family:'Tajawal',sans-serif; font-size:13px; font-weight:700; cursor:pointer; }
+
+/* confetti */
+#cc{position:fixed;inset:0;z-index:9999;pointer-events:none;display:none;}
+
+@media print{
+  body *{visibility:hidden;}
+  #pg-cert,#pg-cert *{visibility:visible;}
+  #pg-cert{position:absolute;inset:0;background:#f8f4ee;}
+  .cacts{display:none!important;}
+}
+</style>
+</head>
+<body>
+<canvas id="cc"></canvas>
+
+<!-- ══ WELCOME ══ -->
+<div class="page on" id="pg-welcome">
+  <div class="w-outer">
+
+    <div class="w-hero">
+      <span class="w-flag">🇶🇦</span>
+      <h1 class="w-title">الخط الزمني لإنجازات الشيخ تميم بن حمد<br>في المجال الاجتماعي</h1>
+      <p class="w-sub">نشاط سحب وإفلات · الدراسات الاجتماعية</p>
+    </div>
+
+    <div class="w-info">
+      <div class="w-info-icon">📌</div>
+      <div class="w-info-text">
+        اسحبي كل إنجاز إلى <strong>السنة الصحيحة</strong> في الخط الزمني.<br>
+        يمكنك <strong>سحب أي بطاقة وتبديلها</strong> في أي وقت.
+        عند الإجابة الكاملة ستحصلين على <strong>شهادة تميّز 🏆</strong>
+      </div>
+    </div>
+
+    <div class="w-form">
+      <div class="w-form-title">أدخلي بياناتك للبدء</div>
+      <div class="fg">
+        <label>اسم الطالبة</label>
+        <input type="text" id="inp-name" placeholder="اكتبي اسمك الكامل...">
+        <span class="errtxt" id="err-name">يرجى إدخال الاسم.</span>
+      </div>
+      <div class="fg" style="margin-bottom:16px">
+        <label>الصف والشعبة</label>
+        <input type="text" id="inp-class" placeholder="مثال: 10/1">
+        <span class="errtxt" id="err-class">يرجى إدخال الصف.</span>
+      </div>
+      <button class="btn-start" id="btn-start">ابدئي النشاط ←</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ ACTIVITY ══ -->
+<div class="page" id="pg-act">
+  <div class="act-wrap">
+
+    <div class="topbar">
+      <div class="topbar-icon">📅</div>
+      <div class="topbar-text">
+        <h2>الخط الزمني لإنجازات الشيخ تميم بن حمد في المجال الاجتماعي</h2>
+        <p>الدراسات الاجتماعية · نشاط تفاعلي</p>
+      </div>
+      <div class="topbar-flag">🇶🇦</div>
+    </div>
+
+    <div class="instr">
+      <div class="instr-dot"></div>
+      اسحب الإنجاز إلى السنة الصحيحة — يمكنك تبديل البطاقات في أي وقت
+      <div class="instr-dot"></div>
+    </div>
+
+    <!-- POOL -->
+    <div class="pool-box">
+      <div class="box-label">الإنجازات</div>
+      <div class="pool" id="pool">
+        <div class="dcard" id="dc-e1" data-id="e1">افتتاح مطار حمد الدولي</div>
+        <div class="dcard" id="dc-e2" data-id="e2">افتتاح ميناء حمد البحري</div>
+        <div class="dcard" id="dc-e3" data-id="e3">إنشاء مجلس قطر للبحث والتطوير والابتكار</div>
+        <div class="dcard" id="dc-e4" data-id="e4">افتتاح بطولة كأس العالم FIFA قطر 2022 بنجاح باهر</div>
+        <div class="dcard" id="dc-e5" data-id="e5">إجراء تعديلات على الدستور القطري على المستوى الوطني</div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="tl-box">
+      <div class="box-label">الخط الزمني</div>
+      <div class="tl-track">
+
+        <div class="tl-row">
+          <div class="tl-year-wrap">
+            <div class="tl-circle"><span>2014</span></div>
+          </div>
+          <div class="dzone" data-ans="e1" id="dz-0"><span class="zone-hint">اسحب هنا</span></div>
+        </div>
+        <div class="tl-sep"></div>
+
+        <div class="tl-row">
+          <div class="tl-year-wrap">
+            <div class="tl-circle"><span>2017</span></div>
+          </div>
+          <div class="dzone" data-ans="e2" id="dz-1"><span class="zone-hint">اسحب هنا</span></div>
+        </div>
+        <div class="tl-sep"></div>
+
+        <div class="tl-row">
+          <div class="tl-year-wrap">
+            <div class="tl-circle"><span>2018</span></div>
+          </div>
+          <div class="dzone" data-ans="e3" id="dz-2"><span class="zone-hint">اسحب هنا</span></div>
+        </div>
+        <div class="tl-sep"></div>
+
+        <div class="tl-row">
+          <div class="tl-year-wrap">
+            <div class="tl-circle"><span>2022</span></div>
+          </div>
+          <div class="dzone" data-ans="e4" id="dz-3"><span class="zone-hint">اسحب هنا</span></div>
+        </div>
+        <div class="tl-sep"></div>
+
+        <div class="tl-row">
+          <div class="tl-year-wrap">
+            <div class="tl-circle"><span>2024</span></div>
+          </div>
+          <div class="dzone" data-ans="e5" id="dz-4"><span class="zone-hint">اسحب هنا</span></div>
+        </div>
+
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-check" id="btn-check">✔ تحقق من الإجابات</button>
+        <button class="btn-reset" id="btn-reset">↺ إعادة</button>
+      </div>
+      <div class="result" id="result"></div>
+    </div>
+
+    <button class="btn-cert" id="btn-show-cert">🎓 عرض شهادة التميّز ←</button>
+
+  </div>
+</div>
+
+<!-- ══ CERTIFICATE ══ -->
+<div class="page" id="pg-cert">
+  <div class="cwrap">
+    <div class="ccard">
+      <div class="cband"></div>
+      <div class="ccorn tl">✦</div><div class="ccorn tr">✦</div>
+      <div class="ccorn bl">✦</div><div class="ccorn br">✦</div>
+      <div class="cin">
+        <div class="cwm">🇶🇦</div>
+        <div class="c-eyebrow">❖ &nbsp; ❖ &nbsp; ❖</div>
+        <div class="c-school">مدرسة قطر التقنية الثانوية للبنات</div>
+        <div class="c-divider"></div>
+        <div class="c-badge">الدراسات الاجتماعية — إنجازات الشيخ تميم بن حمد</div>
+        <div class="c-rule"><span>✦</span></div>
+        <h1 class="c-title">شهادة تميّز وإتقان</h1>
+        <div class="c-rule" style="margin-bottom:13px"><span>✦</span></div>
+        <div class="c-body">
+          يُشهد بأن الطالبة
+          <span class="c-name" id="cert-name"></span>
+          من الصف
+          <span class="c-name" id="cert-class" style="font-size:15px"></span>
+          قد أتمّت بنجاح نشاط الخط الزمني لإنجازات الشيخ تميم بن حمد في المجال الاجتماعي
+          في مادة الدراسات الاجتماعية بإجابات صحيحة كاملة.
+        </div>
+        <div class="c-act">🏆 الخط الزمني لإنجازات الشيخ تميم بن حمد في المجال الاجتماعي 🏆</div>
+        <div class="c-stars">⭐⭐⭐⭐⭐</div>
+        <div class="c-date" id="cert-date"></div>
+        <hr class="c-rule2">
+        <div class="c-sig-line"></div>
+        <div class="c-sig-name">أ/ حنان الطيري</div>
+        <div class="c-sig-role">منسقة الدراسات الاجتماعية</div>
+      </div>
+      <div class="cband"></div>
+    </div>
+    <div class="cacts">
+      <button class="btn-print" onclick="window.print()">🖨️ طباعة الشهادة</button>
+      <button class="btn-back-cert" id="btn-back">← العودة للنشاط</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function goTo(id){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('on');});
+  document.getElementById(id).classList.add('on');
+  window.scrollTo(0,0);
+}
+
+var SN='',SCL='';
+document.getElementById('btn-start').onclick=function(){
+  var n=document.getElementById('inp-name').value.trim();
+  var c=document.getElementById('inp-class').value.trim();
+  document.getElementById('err-name').style.display=n?'none':'block';
+  document.getElementById('err-class').style.display=c?'none':'block';
+  if(!n||!c)return;
+  SN=n;SCL=c;goTo('pg-act');
+};
+
+/* ── DRAG ENGINE ── */
+var dragged=null, draggedFrom=null, dragClone=null;
+
+function bindDrag(card){
+  card.addEventListener('mousedown',onMD);
+  card.addEventListener('touchstart',onTS,{passive:false});
+}
+
+function getCard(el){while(el&&!el.classList.contains('dcard'))el=el.parentElement;return el;}
+
+function onMD(e){
+  if(e.button!==0)return;
+  var c=getCard(e.target);if(!c)return;
+  startDrag(c,e.clientX,e.clientY);
+  document.addEventListener('mousemove',onMM);
+  document.addEventListener('mouseup',onMU);
+}
+function onTS(e){
+  e.preventDefault();
+  var c=getCard(e.target);if(!c)return;
+  var t=e.touches[0];
+  startDrag(c,t.clientX,t.clientY);
+  document.addEventListener('touchmove',onTM,{passive:false});
+  document.addEventListener('touchend',onTE);
+}
+
+function startDrag(card,cx,cy){
+  dragged=card;
+  var p=card.parentElement;
+  draggedFrom=p.classList.contains('dzone')?p.id:'pool';
+  card.classList.add('dragging');
+  var r=card.getBoundingClientRect();
+  dragClone=card.cloneNode(true);
+  dragClone.classList.remove('dragging','in-zone');
+  dragClone.style.cssText='position:fixed;z-index:9999;pointer-events:none;margin:0;'
+    +'width:'+r.width+'px;opacity:.9;transform:scale(1.04) rotate(-1.5deg);transition:none;border-radius:9px;';
+  dragClone.style.left=(cx-r.width/2)+'px';
+  dragClone.style.top=(cy-r.height/2)+'px';
+  document.body.appendChild(dragClone);
+}
+
+function onMM(e){mv(e.clientX,e.clientY);}
+function onTM(e){e.preventDefault();var t=e.touches[0];mv(t.clientX,t.clientY);}
+
+function mv(cx,cy){
+  if(!dragClone)return;
+  var r=dragClone.getBoundingClientRect();
+  dragClone.style.left=(cx-r.width/2)+'px';
+  dragClone.style.top=(cy-r.height/2)+'px';
+  document.querySelectorAll('.dzone').forEach(function(z){z.classList.remove('over');});
+  document.getElementById('pool').classList.remove('drag-over');
+  var t=targetAt(cx,cy);
+  if(t&&t.classList.contains('dzone'))t.classList.add('over');
+  if(t&&t.id==='pool')t.classList.add('drag-over');
+}
+
+function onMU(e){drop(e.clientX,e.clientY);document.removeEventListener('mousemove',onMM);document.removeEventListener('mouseup',onMU);}
+function onTE(e){var t=e.changedTouches[0];drop(t.clientX,t.clientY);document.removeEventListener('touchmove',onTM);document.removeEventListener('touchend',onTE);}
+
+function targetAt(cx,cy){
+  if(dragClone)dragClone.style.display='none';
+  var el=document.elementFromPoint(cx,cy);
+  if(dragClone)dragClone.style.display='';
+  if(!el)return null;
+  var cur=el;
+  while(cur){
+    if(cur.classList&&cur.classList.contains('dzone'))return cur;
+    if(cur.id==='pool')return cur;
+    cur=cur.parentElement;
+  }
+  return null;
+}
+
+function drop(cx,cy){
+  document.querySelectorAll('.dzone').forEach(function(z){z.classList.remove('over');});
+  document.getElementById('pool').classList.remove('drag-over');
+  if(!dragged){cleanup();return;}
+  var target=targetAt(cx,cy);
+  if(!target){restoreOrigin();}
+  else if(target.id==='pool'){sendToPool(dragged);}
+  else if(target.classList.contains('dzone')){placeInZone(dragged,target);}
+  else{restoreOrigin();}
+  cleanup();
+}
+
+function restoreOrigin(){
+  dragged.classList.remove('dragging');
+  dragged.style.opacity='1';
+}
+
+function sendToPool(card){
+  var p=card.parentElement;
+  if(p&&p.classList.contains('dzone'))clearZone(p);
+  card.classList.remove('dragging','placed-ok','placed-er','in-zone');
+  card.style.opacity='1'; card.style.width=''; card.style.maxWidth='';
+  document.getElementById('pool').appendChild(card);
+  bindDrag(card);
+}
+
+function placeInZone(card,zone){
+  var existing=zone.querySelector('.dcard');
+  if(existing&&existing!==card){
+    existing.classList.remove('placed-ok','placed-er','in-zone');
+    existing.style.width=''; existing.style.maxWidth='';
+    document.getElementById('pool').appendChild(existing);
+    bindDrag(existing);
+  }
+  if(draggedFrom&&draggedFrom!=='pool'){
+    var old=document.getElementById(draggedFrom);
+    if(old&&old!==zone)clearZone(old);
+  }
+  zone.querySelectorAll('.zone-hint').forEach(function(h){h.remove();});
+  zone.dataset.placed=card.dataset.id;
+  zone.classList.remove('ok','er'); zone.classList.add('filled');
+  card.classList.remove('dragging','placed-ok','placed-er'); card.classList.add('in-zone');
+  card.style.opacity='1';
+  zone.appendChild(card);
+  bindDrag(card);
+}
+
+function clearZone(zone){
+  delete zone.dataset.placed;
+  zone.classList.remove('filled','ok','er');
+  if(!zone.querySelector('.zone-hint')){
+    var h=document.createElement('span');h.className='zone-hint';h.textContent='اسحب هنا';zone.appendChild(h);
+  }
+}
+
+function cleanup(){
+  if(dragClone){dragClone.remove();dragClone=null;}
+  dragged=null;draggedFrom=null;
+}
+
+document.querySelectorAll('#pool .dcard').forEach(bindDrag);
+
+/* ── CHECK ── */
+document.getElementById('btn-check').onclick=function(){
+  var zones=document.querySelectorAll('.dzone');
+  var correct=0,filled=0;
+  zones.forEach(function(z){
+    var p=z.dataset.placed;if(!p)return;
+    filled++;
+    var ok=p===z.dataset.ans;if(ok)correct++;
+    z.classList.remove('ok','er');z.classList.add(ok?'ok':'er');
+    var card=z.querySelector('.dcard');
+    if(card){card.classList.remove('placed-ok','placed-er');card.classList.add(ok?'placed-ok':'placed-er');}
+  });
+  var total=zones.length,res=document.getElementById('result');
+  document.getElementById('btn-reset').classList.add('show');
+  if(filled<total){
+    res.className='result show part';
+    res.textContent='⚠️ يرجى وضع جميع الإنجازات قبل التحقق. ('+filled+'/'+total+' موضوعة)';
+    document.getElementById('btn-show-cert').classList.remove('show');return;
+  }
+  if(correct===total){
+    res.className='result show ok';
+    res.textContent='🎉 رائع! جميع الإجابات صحيحة!';
+    document.getElementById('btn-show-cert').classList.add('show');boom();
+  }else{
+    res.className='result show part';
+    res.textContent='✏️ '+correct+' من '+total+' إجابات صحيحة. حاولي مجدداً!';
+    document.getElementById('btn-show-cert').classList.remove('show');
+  }
+};
+
+/* ── RESET ── */
+document.getElementById('btn-reset').onclick=function(){
+  var pool=document.getElementById('pool');
+  document.querySelectorAll('.dzone').forEach(function(z){
+    var card=z.querySelector('.dcard');
+    if(card){
+      card.classList.remove('placed-ok','placed-er','in-zone','dragging');
+      card.style.opacity='1';card.style.width='';card.style.maxWidth='';
+      pool.appendChild(card);bindDrag(card);
+    }
+    clearZone(z);
+  });
+  pool.querySelectorAll('.dcard').forEach(function(c){c.classList.remove('placed-ok','placed-er');});
+  document.getElementById('result').className='result';
+  document.getElementById('result').textContent='';
+  document.getElementById('btn-reset').classList.remove('show');
+  document.getElementById('btn-show-cert').classList.remove('show');
+};
+
+/* ── CERT ── */
+document.getElementById('btn-show-cert').onclick=function(){
+  document.getElementById('cert-name').textContent=SN;
+  document.getElementById('cert-class').textContent=SCL;
+  document.getElementById('cert-date').textContent='التاريخ: '+new Date().toLocaleDateString('ar-SA',{year:'numeric',month:'long',day:'numeric'});
+  goTo('pg-cert');
+};
+document.getElementById('btn-back').onclick=function(){goTo('pg-act');};
+
+/* ── CONFETTI ── */
+function boom(){
+  var c=document.getElementById('cc');
+  c.style.display='block';c.width=window.innerWidth;c.height=window.innerHeight;
+  var ctx=c.getContext('2d'),pieces=[];
+  var colors=['#b8923a','#6b1220','#1e6840','#e8cc88','#c0394f','#f1c40f','#fff','#8a1a2c'];
+  for(var i=0;i<130;i++)pieces.push({x:Math.random()*c.width,y:Math.random()*c.height-c.height,r:Math.random()*6+3,d:Math.random()*110+10,color:colors[Math.floor(Math.random()*colors.length)],tilt:Math.random()*10-10});
+  var angle=0,tick=0;
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);angle+=0.01;tick++;
+    pieces.forEach(function(p){
+      ctx.beginPath();ctx.lineWidth=p.r;ctx.strokeStyle=p.color;
+      ctx.moveTo(p.x+p.tilt+p.r/4,p.y);ctx.lineTo(p.x+p.tilt,p.y+p.tilt+p.r/4);ctx.stroke();
+      p.y+=(Math.cos(angle+p.d)+2)*1.6;p.x+=Math.sin(angle)*1.4;p.tilt=Math.sin(angle-tick/12)*13;
+    });
+    if(tick<200)requestAnimationFrame(draw);
+    else{ctx.clearRect(0,0,c.width,c.height);c.style.display='none';}
+  }
+  draw();
+}
+</script>
+</body>
+</html>
